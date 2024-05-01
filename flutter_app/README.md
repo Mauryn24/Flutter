@@ -20,3 +20,5 @@
 
 6. To write a new app
    - Access the ```lib/main.dart``` and create your file there
+  
+ 7. Make sure to go through the widgets in Flutter to understand it better
