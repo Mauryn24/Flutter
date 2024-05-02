@@ -7,11 +7,11 @@ void main() {
   runApp(MyApp());
 }
 
-// The MyApp class extends StatelessWidget. Widgets are the elements from which you build every Flutter app. 
+// The MyApp class extends StatelessWidget. Widgets are the elements from which you build every Flutter app.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 // MyAppState defines the data the app needs to function
- 
+
   @override
   Widget build(BuildContext context) {
     // The state class extends ChangeNotifier, which means that it can notify others about its own changes.
@@ -47,6 +47,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // MyHomePage tracks changes to the app's current state using the watch method.
     var appState = context.watch<MyAppState>();
+    var pair = appState.current;
     // Every build method must return a widget or (more typically) a nested tree of widgets.
     //  In this case, the top-level widget is Scaffold
     return Scaffold(
@@ -57,15 +58,34 @@ class MyHomePage extends StatelessWidget {
           Text('A random awesome idea:'),
           // This second Text widget takes appState, and accesses the only member of that class, current (which is a WordPair). WordPair provides several helpful getters, such as asPascalCase or asSnakeCase.
           //Here, we use asLowerCase but you can change this now if you prefer one of the alternatives.
-          Text(appState.current.asLowerCase),
+          BigCard(pair: pair),
           // ↓ Add this.
           ElevatedButton(
             onPressed: () {
-              appState.getNext();  // ← This instead of print().
+              appState.getNext(); // ← This instead of print().
             },
             child: Text('Next'),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class BigCard extends StatelessWidget {
+  const BigCard({
+    super.key,
+    required this.pair,
+  });
+
+  final WordPair pair;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Text(pair.asLowerCase),
       ),
     );
   }
