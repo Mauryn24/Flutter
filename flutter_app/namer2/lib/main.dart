@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         title: 'Namer App',
         theme: ThemeData(
           useMaterial3: true,
+          // allows for change of colors
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         ),
         home: MyHomePage(),
@@ -82,10 +83,20 @@ class BigCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // the code requests the app's current theme with Theme.of(context)
+    final theme = Theme.of(context);       // ← Add this.
+
+    final style = theme.textTheme.displayMedium!.copyWith(
+      color: theme.colorScheme.onPrimary,
+    );
+
     return Card(
+      // the code defines the card's color to be the same as the theme's colorScheme property
+      //The color scheme contains many colors, and primary is the most prominent, defining color of the app.
+      color: theme.colorScheme.primary,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Text(pair.asLowerCase),
+        child: Text(pair.asLowerCase, style: style),
       ),
     );
   }
