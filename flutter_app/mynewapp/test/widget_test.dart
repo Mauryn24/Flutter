@@ -11,20 +11,18 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mynewapp/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('My First App displays title and greets the user',
+      (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    //await tester.pumpWidget(const Scaffold());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verify that the app bar title is displayed.
+    final appBarTitle = find.text('My First App');
+    expect(appBarTitle, findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify that the greeting text is displayed.
+    final greetingText =
+        find.text('Hello World!, This is my FIRST FLUTTER APP');
+    expect(greetingText, findsOneWidget);
   });
 }
