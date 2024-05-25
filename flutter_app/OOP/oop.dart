@@ -2,6 +2,10 @@ void main() {
   // main
   Person person = Person('john', 40);
   print(person.address);
+  person.printInfo();
+  // printing a string in dart
+  print(
+      'My name is ${person.name}, I am ${person.age} years old. My address is ${person.address}');
 }
 
 // terms in oop
@@ -25,5 +29,6 @@ class Person {
   }
 
   // Constructor
+  // this.name - link your name to the name attribute
   Person(this.name, this.age, [this.address = 'Kite']);
 }
