@@ -4,13 +4,61 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Creating the simplest flutter app
+1. create the app using the comand
+   ```flutter create flutter_widgets```
 
-A few resources to get you started if this is your first Flutter project:
+2. remove the test folder 
+   
+3. in your ```main.dart``` remove the ever code that follows the class MyApp
+   
+4. Add this startup code
+   
+   ```
+   import 'package:flutter/material.dart';
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+    void main() {
+        runApp(MaterialApp(
+        home: Text('Hello World!'),
+    ));
+    }
+   ```
+5. Style property
+   
+   ```
+   import 'package:flutter/material.dart';
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    void main() {
+    runApp(MaterialApp(
+        home: Text(
+            'Hello World!',
+            style: TextStyle(
+            color: Colors.greenAccent,
+            backgroundColor: Colors.black54,
+            ),
+            ),
+    ));
+    }
+
+   ```
+6. Center widget
+   
+   ```
+   import 'package:flutter/material.dart';
+
+    void main() {
+    runApp(MaterialApp(
+        home: Center(
+            child: Text(
+            'Hello World!',
+            style: TextStyle(
+                color: Colors.greenAccent,
+                backgroundColor: Colors.black54,
+                ),
+            ),
+        ),
+    ));
+    }
+
+   ```
+7. 

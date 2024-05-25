@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp());
+  runApp(MaterialApp(
+      home: Center(
+        child: Text(
+          'Hello World!',
+          style: TextStyle(
+            color: Colors.greenAccent,
+            backgroundColor: Colors.black54,
+            ),
+          ),
+      ),
+  ));
 }
