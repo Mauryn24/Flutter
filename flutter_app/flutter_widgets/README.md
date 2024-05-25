@@ -5,12 +5,12 @@ A new Flutter project.
 ## Getting Started
 
 ### Creating the simplest flutter app
-1. create the app using the comand
+1. Create the app using the comand
    ```flutter create flutter_widgets```
 
-2. remove the test folder 
+2. Remove the test folder 
    
-3. in your ```main.dart``` remove the ever code that follows the class MyApp
+3. In your ```main.dart``` remove the ever code that follows the class MyApp
    
 4. Add this startup code
    
@@ -61,4 +61,5 @@ A new Flutter project.
     }
 
    ```
-7. 
+7. Run the app
+   - Use ```flutter run```
