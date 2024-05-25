@@ -8,9 +8,9 @@ A new Flutter project.
 1. Create the app using the comand
    ```flutter create flutter_widgets```
 
-2. Remove the test folder 
+2. Remove the ```test``` folder 
    
-3. In your ```main.dart``` remove the ever code that follows the class MyApp
+3. In your ```main.dart``` remove the every code that follows the class MyApp
    
 4. Add this startup code
    
