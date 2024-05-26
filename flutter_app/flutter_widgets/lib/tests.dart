@@ -1,11 +1,16 @@
 void main() {
   // main
-  Person person = Person('john', 40, 'Nakuru','0712345678', 'Kenya');
+  Person person = Person(
+    firstname: 'john',
+    age: 40,
+    address: 'Nakuru',
+    country: 'Kenya',
+    phonenumber: '0712345678',
+  );
   print(person.address);
   person.printInfo();
   // printing a string in dart
-  print(
-      'My name is ${person.name}, I am ${person.age} years old. My address is ${person.address}');
+  print('My name is ${person.name}, I am ${person.age} years old. My address is ${person.address}');
 }
 
 // terms in oop
@@ -20,9 +25,9 @@ class Person {
   // attributes/characteristics
   late String name;
   late int age;
-  late String? address;
-  late String? phonenumber;
-  late String? Country;
+  late String address;
+  late String phonenumber;
+  late String country;
 
   // methods - they give behaviour to class
   void printInfo() {
@@ -30,19 +35,17 @@ class Person {
     print(age);
   }
 
-  Person(String firstname, int age, String address,String country, String phone){
-  
-  this.name = 'Dr $firstname';
-  this.age = age;
-  this.Country = country;
-  this.phonenumber = phone;
+  // Constructor with named parameters
+  Person({
+    required String firstname,
+    required this.age,
+    required this.address,
+    required this.country,
+    required this.phonenumber,
+  }) {
+    this.name = 'Dr $firstname';
+  }
 }
-  // Constructor
-  // this.name - link your name to the name attribute
-  // Person(this.name, this.age, this.phonenumber, this.Country
-  //     [this.address = 'Nairobi, Kenya']);
-}
-
 
 // inheritance
 // class Teacher extends Person {
