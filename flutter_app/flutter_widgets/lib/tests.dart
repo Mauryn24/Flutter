@@ -8,6 +8,13 @@ void main() {
     phonenumber: '0712345678',
   );
 
+  Teacher teacher = Teacher(
+    firstname: 'Faith',
+    age: 20,
+    country: 'Uganda',
+    phonenumber: '0723456789',
+  );
+  teacher.printInfo();
   print(person.address);
   person.printInfo();
   // printing a string in dart
@@ -53,9 +60,16 @@ class Person {
 }
 
 // inheritance
-// class Teacher extends Person {
-//   // Person is the parent class/superclass
-//   // Teacher is the child/subclass
+class Teacher extends Person {
+  // Person is the parent class/superclass
+  // Teacher is the child/subclass
 
-//   // child constructor
-// }
+  // child constructor
+  Teacher({
+    required super.firstname,
+    required super.age,
+    required super.country,
+    required super.phonenumber,
+    super.address = 'Embu, Kenya',
+  });
+}
