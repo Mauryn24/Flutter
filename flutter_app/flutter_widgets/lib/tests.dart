@@ -1,6 +1,5 @@
 void main() {
-  // Entry point of the application
-  // Creating an instance of the Person class
+  // Create a Person instance
   Person person = Person(
     firstname: 'john', // First name of the person
     age: 40, // Age of the person
@@ -9,7 +8,7 @@ void main() {
     phonenumber: '0712345678', // Phone number of the person
   );
 
-  // Creating an instance of the Teacher class
+  // Create a Teacher instance
   Teacher teacher = Teacher(
     subjects: ['Maths', 'Chemistry'], // Subjects the teacher teaches
     school: 'TKH', // School where the teacher works
@@ -19,32 +18,38 @@ void main() {
     phonenumber: '0723456789', // Phone number of the teacher
   );
 
-  teacher.printInfo(); // Printing teacher's information
-  print(person.address); // Printing person's address
-  person.printInfo(); // Printing person's information
+  // Print teacher's information
+  teacher.printInfo();
 
-  // Printing a formatted string with person's information
-  print('My name is ${person.name}, I am ${person.age} years old. My address is ${person.address}');
+  // Print person's address
+  print(person.address);
 
+  // Print person's information
+  person.printInfo();
+
+  // Print a formatted string with person's information
+  print(
+      'My name is ${person.name}, I am ${person.age} years old. My address is ${person.address}');
 }
 
-// Terms in OOP (Object-Oriented Programming):
-// - class: A blueprint for creating objects with specific properties and methods
-// - object: An instance of a class
-// - Inheritance: A mechanism where one class can inherit properties and methods from another class
-// - Polymorphism: The ability of different classes to respond to the same method call in different ways
-// - Abstraction: Hiding complex implementation details and showing only the necessary features
-// - Encapsulation: Bundling the data (attributes) and methods (functions) that operate on the data into a single unit (class)
-
+// Define the Person class
 class Person {
-  // Attributes/characteristics of the Person class
+  // Define attributes/characteristics
   late String name; // Name of the person
   late int age; // Age of the person
   late String? address; // Nullable address of the person
   late String phonenumber; // Phone number of the person
   late String country; // Country of the person
 
-   // Method to format the phone number based on the country
+  // Define methods - they give behaviour to the class
+  void printInfo() {
+    print(name); // Print the name
+    print(age); // Print the age
+    print(address); // Print the address
+    print(formatPhoneNumber()); // Print the formatted phone number
+  }
+
+  // Method to format the phone number based on the country
   String formatPhoneNumber() {
     if (country == 'Kenya' && phonenumber.startsWith('0')) {
       return '+254${phonenumber.substring(1)}'; // Format for Kenya
@@ -52,14 +57,6 @@ class Person {
       return '+256${phonenumber.substring(1)}'; // Format for Uganda
     }
     return phonenumber; // Return the original phone number if no formatting is applied
-  }
-  
-  // Method to print the person's information
-  void printInfo() {
-    print(name); // Print the name
-    print(age); // Print the age
-    print(address); // Print the address
-    print(phonenumber); // Print the phone number
   }
 
   // Constructor with named parameters
@@ -71,19 +68,16 @@ class Person {
     required this.phonenumber, // Required phone number
   }) {
     this.name = 'Dr $firstname'; // Initialize name with a prefix 'Dr'
-    this.address = 'Nairobi, Kenya'; // Default address if not provided
   }
 }
 
-// Inheritance
+// Define the Teacher class, which inherits from Person
 class Teacher extends Person {
-  // Person is the parent class (superclass)
-  // Teacher is the child class (subclass)
-
+  // Teacher-specific attributes
   String school; // School where the teacher works
   List<String> subjects; // Subjects the teacher teaches
 
-  // Child constructor with named parameters
+  // Child constructor
   Teacher({
     required super.firstname, // Required first name from the superclass
     required super.age, // Required age from the superclass
