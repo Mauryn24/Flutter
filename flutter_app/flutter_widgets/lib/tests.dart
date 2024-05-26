@@ -7,10 +7,12 @@ void main() {
     country: 'Kenya',
     phonenumber: '0712345678',
   );
+
   print(person.address);
   person.printInfo();
   // printing a string in dart
-  print('My name is ${person.name}, I am ${person.age} years old. My address is ${person.address}');
+  print(
+      'My name is ${person.name}, I am ${person.age} years old. My address is ${person.address}');
 }
 
 // terms in oop
@@ -25,7 +27,7 @@ class Person {
   // attributes/characteristics
   late String name;
   late int age;
-  late String address;
+  late String? address; // nullsble parameter
   late String phonenumber;
   late String country;
 
@@ -33,6 +35,8 @@ class Person {
   void printInfo() {
     print(name);
     print(age);
+    print(address);
+    print(phonenumber);
   }
 
   // Constructor with named parameters
@@ -44,6 +48,7 @@ class Person {
     required this.phonenumber,
   }) {
     this.name = 'Dr $firstname';
+    this.address = 'Nairobi, Kenya';
   }
 }
 
