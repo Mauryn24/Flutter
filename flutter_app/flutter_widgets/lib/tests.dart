@@ -25,6 +25,7 @@ void main() {
 
   // Printing a formatted string with person's information
   print('My name is ${person.name}, I am ${person.age} years old. My address is ${person.address}');
+
 }
 
 // Terms in OOP (Object-Oriented Programming):
@@ -43,6 +44,16 @@ class Person {
   late String phonenumber; // Phone number of the person
   late String country; // Country of the person
 
+   // Method to format the phone number based on the country
+  String formatPhoneNumber() {
+    if (country == 'Kenya' && phonenumber.startsWith('0')) {
+      return '+254${phonenumber.substring(1)}'; // Format for Kenya
+    } else if (country == 'Uganda' && phonenumber.startsWith('0')) {
+      return '+256${phonenumber.substring(1)}'; // Format for Uganda
+    }
+    return phonenumber; // Return the original phone number if no formatting is applied
+  }
+  
   // Method to print the person's information
   void printInfo() {
     print(name); // Print the name
