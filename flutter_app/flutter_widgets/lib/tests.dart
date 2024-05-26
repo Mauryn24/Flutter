@@ -9,6 +9,8 @@ void main() {
   );
 
   Teacher teacher = Teacher(
+    subjects: ['Maths', 'Chemistry'],
+    school: 'TKH',
     firstname: 'Faith',
     age: 20,
     country: 'Uganda',
@@ -64,12 +66,26 @@ class Teacher extends Person {
   // Person is the parent class/superclass
   // Teacher is the child/subclass
 
+  String school;
+  List<String> subjects;
+
   // child constructor
   Teacher({
     required super.firstname,
     required super.age,
     required super.country,
     required super.phonenumber,
+    required this.subjects,
+    required this.school,
     super.address = 'Embu, Kenya',
   });
+
+  @override
+  void printInfo() {
+    // call the super method
+    super.printInfo();
+
+    print(school);
+    print(subjects);
+  }
 }
