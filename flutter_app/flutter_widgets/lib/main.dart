@@ -5,11 +5,7 @@ void main() {
   runApp(MaterialApp(
     // Home page 
       home: Center(
-
-        // padding nesting
-        child: Padding(
-          padding: const EdgeInsets.all(30.0), // padding
-
+        
           // text
           child: Text(
             'Hello World!',
@@ -27,7 +23,6 @@ void main() {
               decoration: TextDecoration.lineThrough,
               ),
             ),
-        ),
       ),
   ));
 }
