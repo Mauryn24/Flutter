@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(MaterialApp(
-    // Home page 
-      home: Center(
-        
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(),
+        body: Center(
+          
           // text
           child: Text(
             'Hello World!',
@@ -23,6 +25,9 @@ void main() {
               decoration: TextDecoration.lineThrough,
               ),
             ),
+        ),
       ),
+    // Home page 
+    
   ));
 }
