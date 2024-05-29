@@ -54,20 +54,24 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       // Column is one of the most basic layout widgets in Flutter. It takes any number of children and puts them in a column from top to bottom
       //  By default, the column visually places its children at the top. You'll soon change this so that the column is centered.
-      body: Column(
-        children: [
-          Text('A random awesome idea:'),
-          // This second Text widget takes appState, and accesses the only member of that class, current (which is a WordPair). WordPair provides several helpful getters, such as asPascalCase or asSnakeCase.
-          //Here, we use asLowerCase but you can change this now if you prefer one of the alternatives.
-          BigCard(pair: pair),
-          // ↓ Add this.
-          ElevatedButton(
-            onPressed: () {
-              appState.getNext(); // ← This instead of print().
-            },
-            child: Text('Next'),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('A random awesome idea:'),
+            // This second Text widget takes appState, and accesses the only member of that class, current (which is a WordPair). WordPair provides several helpful getters, such as asPascalCase or asSnakeCase.
+            //Here, we use asLowerCase but you can change this now if you prefer one of the alternatives.
+            BigCard(pair: pair),
+            SizedBox(height: 10),
+            // ↓ Add this.
+            ElevatedButton(
+              onPressed: () {
+                appState.getNext(); // ← This instead of print().
+              },
+              child: Text('Next'),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -96,7 +100,11 @@ class BigCard extends StatelessWidget {
       color: theme.colorScheme.primary,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Text(pair.asLowerCase, style: style),
+        child: Text(
+          pair.asLowerCase,
+          style: style,
+          semanticsLabel: "${pair.first} ${pair.second}",
+          ),
       ),
     );
   }
