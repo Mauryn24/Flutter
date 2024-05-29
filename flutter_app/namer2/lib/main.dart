@@ -40,6 +40,18 @@ class MyAppState extends ChangeNotifier {
     current = WordPair.random();
     notifyListeners();
   }
+
+  // ↓ Add the code below.
+  var favorites = <WordPair>[];
+
+  void toggleFavorite() {
+    if (favorites.contains(current)) {
+      favorites.remove(current);
+    } else {
+      favorites.add(current);
+    }
+    notifyListeners();
+  }
 }
 
 class MyHomePage extends StatelessWidget {
@@ -49,6 +61,14 @@ class MyHomePage extends StatelessWidget {
     // MyHomePage tracks changes to the app's current state using the watch method.
     var appState = context.watch<MyAppState>();
     var pair = appState.current;
+
+    IconData icon;
+    if (appState.favorites.contains(pair)) {
+      icon = Icons.favorite;
+    } else {
+      icon = Icons.favorite_border;
+    }
+
     // Every build method must return a widget or (more typically) a nested tree of widgets.
     //  In this case, the top-level widget is Scaffold
     return Scaffold(
@@ -64,11 +84,24 @@ class MyHomePage extends StatelessWidget {
             BigCard(pair: pair),
             SizedBox(height: 10),
             // ↓ Add this.
-            ElevatedButton(
-              onPressed: () {
-                appState.getNext(); // ← This instead of print().
-              },
-              child: Text('Next'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: () {
+                    appState.toggleFavorite();
+                  },
+                  icon: Icon(icon),
+                  label: Text('Like'),
+                ),
+                SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    appState.getNext(); // ← This instead of print().
+                  },
+                  child: Text('Next'),
+                ),
+              ],
             ),
           ],
         ),
@@ -88,7 +121,7 @@ class BigCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // the code requests the app's current theme with Theme.of(context)
-    final theme = Theme.of(context);       // ← Add this.
+    final theme = Theme.of(context); // ← Add this.
 
     final style = theme.textTheme.displayMedium!.copyWith(
       color: theme.colorScheme.onPrimary,
@@ -104,7 +137,7 @@ class BigCard extends StatelessWidget {
           pair.asLowerCase,
           style: style,
           semanticsLabel: "${pair.first} ${pair.second}",
-          ),
+        ),
       ),
     );
   }
