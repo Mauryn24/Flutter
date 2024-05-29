@@ -1,5 +1,6 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 // At the very top of the file, you'll find the main() function. In its current form, it only tells Flutter to run the app defined in MyApp.
@@ -43,6 +44,12 @@ class MyAppState extends ChangeNotifier {
 
   // ↓ Add the code below.
   var favorites = <WordPair>[];
+  var selectedIndex = 0;
+  var selectedIndexInAnotherWidget = 0;
+  var indexInYetAnotherWidget = 42;
+  var optionAselected = false;
+  var optionBSelected = false;
+  var loadingFromNetwork = false;
 
   void toggleFavorite() {
     if (favorites.contains(current)) {
@@ -54,11 +61,74 @@ class MyAppState extends ChangeNotifier {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+// ...
+
+// ...
+
+class MyHomePage extends StatefulWidget {
   @override
-  // Every widget defines a build() method that's automatically called every time the widget's circumstances change so that the widget is always up to date.
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+
+class _MyHomePageState extends State<MyHomePage> {
+  var selectedIndex = 0;
+
+  @override
   Widget build(BuildContext context) {
-    // MyHomePage tracks changes to the app's current state using the watch method.
+    Widget page;
+    switch (selectedIndex) {
+      case 0:
+        page = GeneratorPage();
+        break;
+      case 1:
+        page = FavoritesPage(); // Update this line to show FavoritesPage
+        break;
+      default:
+        throw UnimplementedError('no widget for $selectedIndex');
+    }
+
+    return LayoutBuilder(builder: (context, constraints) {
+      return Scaffold(
+        body: Row(
+          children: [
+            SafeArea(
+              child: NavigationRail(
+                extended: constraints.maxWidth >= 600,
+                destinations: [
+                  NavigationRailDestination(
+                    icon: Icon(Icons.home),
+                    label: Text('Home'),
+                  ),
+                  NavigationRailDestination(
+                    icon: Icon(Icons.favorite),
+                    label: Text('Favorites'),
+                  ),
+                ],
+                selectedIndex: selectedIndex,
+                onDestinationSelected: (value) {
+                  setState(() {
+                    selectedIndex = value;
+                  });
+                },
+              ),
+            ),
+            Expanded(
+              child: Container(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                child: page,
+              ),
+            ),
+          ],
+        ),
+      );
+    });
+  }
+}
+
+class GeneratorPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     var pair = appState.current;
 
@@ -69,46 +139,39 @@ class MyHomePage extends StatelessWidget {
       icon = Icons.favorite_border;
     }
 
-    // Every build method must return a widget or (more typically) a nested tree of widgets.
-    //  In this case, the top-level widget is Scaffold
-    return Scaffold(
-      // Column is one of the most basic layout widgets in Flutter. It takes any number of children and puts them in a column from top to bottom
-      //  By default, the column visually places its children at the top. You'll soon change this so that the column is centered.
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('A random awesome idea:'),
-            // This second Text widget takes appState, and accesses the only member of that class, current (which is a WordPair). WordPair provides several helpful getters, such as asPascalCase or asSnakeCase.
-            //Here, we use asLowerCase but you can change this now if you prefer one of the alternatives.
-            BigCard(pair: pair),
-            SizedBox(height: 10),
-            // ↓ Add this.
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                    appState.toggleFavorite();
-                  },
-                  icon: Icon(icon),
-                  label: Text('Like'),
-                ),
-                SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    appState.getNext(); // ← This instead of print().
-                  },
-                  child: Text('Next'),
-                ),
-              ],
-            ),
-          ],
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          BigCard(pair: pair),
+          SizedBox(height: 10),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ElevatedButton.icon(
+                onPressed: () {
+                  appState.toggleFavorite();
+                },
+                icon: Icon(icon),
+                label: Text('Like'),
+              ),
+              SizedBox(width: 10),
+              ElevatedButton(
+                onPressed: () {
+                  appState.getNext();
+                },
+                child: Text('Next'),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
 }
+
+// ...
+// ...
 
 class BigCard extends StatelessWidget {
   const BigCard({
@@ -139,6 +202,34 @@ class BigCard extends StatelessWidget {
           semanticsLabel: "${pair.first} ${pair.second}",
         ),
       ),
+    );
+  }
+}
+
+class FavoritesPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var appState = context.watch<MyAppState>();
+
+    if (appState.favorites.isEmpty) {
+      return Center(
+        child: Text('No favorites yet.'),
+      );
+    }
+
+    return ListView(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: Text('You have '
+              '${appState.favorites.length} favorites:'),
+        ),
+        for (var pair in appState.favorites)
+          ListTile(
+            leading: Icon(Icons.favorite),
+            title: Text(pair.asLowerCase),
+          ),
+      ],
     );
   }
 }
