@@ -22,10 +22,14 @@ void main() {
         title: const Text(
           // Set the title of the AppBar
           'Flutter Widgets',
+          style: TextStyle(
+            fontFamily: "Edu",
+          ),
         ),
         centerTitle: true, // Center the title horizontally
         backgroundColor: Colors.grey[800], // Set the background color
         foregroundColor: Colors.grey[200], // Set the text color for the title and icons
+    
       ),
       body: const Center(
         // Center the content within the Scaffold
@@ -37,6 +41,7 @@ void main() {
             backgroundColor: Colors.black54, // Set the background color (with some transparency)
             decoration: TextDecoration.lineThrough, // Add a line through the text
             fontSize: 45,
+            fontFamily: "Chivo",
           ),
         ),
       ),
