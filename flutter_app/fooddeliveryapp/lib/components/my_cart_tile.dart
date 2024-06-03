@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fooddeliveryapp/components/my_quantity_selector.dart';
 import 'package:fooddeliveryapp/models/cart_item.dart';
 import 'package:fooddeliveryapp/models/restaurant.dart';
@@ -18,7 +17,7 @@ class MyCartTile extends StatelessWidget {
           color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(8),
         ),
-        margin: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
         child: Column(
           children: [
             Padding(
@@ -34,9 +33,11 @@ class MyCartTile extends StatelessWidget {
                       width: 100,
                     ),
                   ),
-              
-                  const SizedBox(width: 10,),
-              
+
+                  const SizedBox(
+                    width: 10,
+                  ),
+
                   // name and price
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,13 +45,12 @@ class MyCartTile extends StatelessWidget {
                       // food name
                       Text(cartItem.food.name),
                       // food price
-                      Text('\$' + cartItem.food.price.toString()),
+                      Text('\$${cartItem.food.price}'),
                     ],
                   ),
 
                   const Spacer(),
-              
-              
+
                   // increment and decrement quantity
                   QuantitySelector(
                     food: cartItem.food,
@@ -60,12 +60,33 @@ class MyCartTile extends StatelessWidget {
                     },
                     onDecrement: () {
                       restaurant.removeFromCart(cartItem);
-                    })
+                    },
+                  ),
                 ],
               ),
             ),
 
             // addons
+            SizedBox(
+              height: cartItem.selectedAddons.isEmpty ? 0 : 60,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: cartItem.selectedAddons.map(
+                  (addon) => FilterChip(
+                    label: Row(
+                      children: [
+                        // addon name
+                        Text(addon.name),
+
+                        // addon price
+                        Text(addon.price.toString()),
+                      ],
+                    ),
+                    onSelected: (value) {},
+                  ),
+                ).toList(), // Convert the iterable to a list
+              ),
+            ),
           ],
         ),
       ),
