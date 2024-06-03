@@ -1,9 +1,11 @@
 // Restaurant class
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:fooddeliveryapp/models/cart_item.dart';
 import 'package:fooddeliveryapp/models/food.dart';
 
-class Restaurant extends ChangeNotifier{
+class Restaurant extends ChangeNotifier {
   // list of food menu
   final List<Food> _menu = [
     // burgers
@@ -246,8 +248,7 @@ class Restaurant extends ChangeNotifier{
       name: "Bacon Wrapped Asparagus",
       description:
           "Imagine crisp asparagus spears, their grassy notes perfectly complemented by the salty smokiness of wrapped bacon. Each bite is a delightful explosion of textures – the snap of the asparagus, the satisfying chew of the bacon, and a hint of char if you choose to grill.",
-      image:
-          "lib/images/sides/Bacon_Wrapped_Asparagus.jpg",
+      image: "lib/images/sides/Bacon_Wrapped_Asparagus.jpg",
       price: 1.99,
       category: FoodCategory.sides,
       availableAddons: [
@@ -339,8 +340,7 @@ class Restaurant extends ChangeNotifier{
       name: "Simple Creamy Mashed Potatoes • Olive & Mango",
       description:
           "A comforting classic with a touch of luxury. Creamy mashed potatoes made with fluffy, boiled potatoes are whipped to perfection with butter and a hint of cream. The result is a smooth and flavorful side dish perfect for any occasion.",
-      image:
-          "lib/images/sides/Simple_Creamy_Mashed_Potatoes.jpg",
+      image: "lib/images/sides/Simple_Creamy_Mashed_Potatoes.jpg",
       price: 1.99,
       category: FoodCategory.sides,
       availableAddons: [
@@ -596,20 +596,84 @@ class Restaurant extends ChangeNotifier{
   */
   List<Food> get menu => _menu;
 
-
   /*
    O P E R A T I O N S
   */
 
+  // User cart
+  final List<CartItem> _cart = [];
+
   // Add to cart
+  void addToCart(Food food, List<Addon> selectedAddons) {
+    // see if there is a cart item already with the same food and selected addons
+
+    // run flutter pub add collection on terminal to install the collection package to be used with firstWhereOrNull method
+    CartItem? cartItem = _cart.firstWhereOrNull((item) {
+      //check if the food items are the same
+      bool isSaveFood = item.food == food;
+
+      // check if the list of selected addons are the same
+      bool isSavedAddons =
+          ListEquality().equals(item.selectedAddons, selectedAddons);
+
+      return isSaveFood && isSavedAddons;
+    });
+    // if item exists, increase quantity
+    if (cartItem != null) {
+      cartItem.quantity++;
+    }
+    // otherwise add a new cart item
+    else {
+      _cart.add(
+        CartItem(food: food, selectedAddons: selectedAddons),
+      );
+    }
+    notifyListeners();
+  }
 
   // remove from cart
+  void removeFromCart(CartItem cartItem) {
+    int cartIndex = _cart.indexOf(cartItem);
+    if (cartIndex != -1) {
+      if (_cart[cartIndex].quantity > 1) {
+        _cart[cartIndex].quantity--;
+      } else {
+        _cart.removeAt(cartIndex);
+      }
+    }
+    notifyListeners();
+  }
 
   // get total price of cart
+  double getTotalPrice() {
+    double total = 0.0;
+
+    for (CartItem cartItem in _cart) {
+      double itemTotal = cartItem.food.price;
+
+      for (Addon addon in cartItem.selectedAddons) {
+        itemTotal += addon.price;
+      }
+      total += itemTotal * cartItem.quantity;
+    }
+    return total;
+  }
 
   // get number of items in the cart
+  int getTotalItemCount() {
+    int totalItemCount = 0;
+
+    for (CartItem cartItem in _cart) {
+      totalItemCount += cartItem.quantity;
+    }
+    return totalItemCount;
+  }
 
   // clear the cart
+  void clearCart() {
+    _cart.clear();
+    notifyListeners();
+  }
 
   /*
     H E L P E R S
