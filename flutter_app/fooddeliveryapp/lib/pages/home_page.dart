@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fooddeliveryapp/components/my_current_location.dart';
 import 'package:fooddeliveryapp/components/my_description_box.dart';
 import 'package:fooddeliveryapp/components/my_drawer.dart';
+import 'package:fooddeliveryapp/components/my_food_tile.dart';
 import 'package:fooddeliveryapp/components/my_sliver_app_bar.dart';
 import 'package:fooddeliveryapp/components/my_tab_bar.dart';
 import 'package:fooddeliveryapp/models/food.dart';
@@ -43,13 +44,19 @@ class _HomepageState extends State<Homepage>
 // Return List of foods in the category
   List<Widget> getFoodInThisCategory(List<Food> fullMenu) {
     return FoodCategory.values.map((category) {
+      // get category menu
       List<Food> categoryMenu = _filterMenuByCategory(category, fullMenu);
       return ListView.builder(
         itemCount: categoryMenu.length,
         physics: const NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(categoryMenu[index].name),
+          // get individual foods
+          final food = categoryMenu[index];
+          // return the food Tile
+          return FoodTile(
+            food: food,
+            onTap: () {},
           );
         },
       );
@@ -83,11 +90,10 @@ class _HomepageState extends State<Homepage>
           ),
         ],
         body: Consumer<Restaurant>(
-          builder:(context, restaurant, child)=>TabBarView(
+          builder: (context, restaurant, child) => TabBarView(
             controller: _tabController,
             children: getFoodInThisCategory(restaurant.menu),
           ),
-  
         ),
       ),
     );
