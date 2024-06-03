@@ -11,8 +11,26 @@ class MyTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      controller: tabController,
-      tabs:
+      child: TabBar(
+        controller: tabController,
+        tabs: [
+          // 1st tab
+          Tab(
+            icon: Icon(Icons.home),
+          ),
+
+          // 2nd Tab
+          Tab(
+            icon: Icon(Icons.settings),
+          ),
+
+          // 3rd Tab
+          Tab(
+            icon: Icon(Icons.person),
+          ),
+        ],
+        ),
+      
     );
   }
 }
