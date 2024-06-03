@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fooddeliveryapp/models/food.dart';
 
@@ -13,25 +14,44 @@ class FoodTile extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: onTap,
-          child: Row(
-            children: [
-
-              // Text food details
-              Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              children: [
+                // Text food details
+                Expanded(
                   child: Column(
-                children: [
-                  Text(food.name),
-                  Text(food.price.toString()),
-                  Text(food.description),
-                ],
-              ),
-              ),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(food.name),
+                      Text(
+                        '\$' + food.price.toString(),
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
+                      ),
+                      const SizedBox(height: 10,),
+                      Text(food.description,
+                      style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),),
+                    ],
+                  ),
+                ),
 
-              // food image
-              Image.asset(food.image),
-            ],
+                const SizedBox(width: 25,),
+                // food image
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    food.image,
+                    height: 120,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
+        Divider(color: Theme.of(context).colorScheme.tertiary,
+        endIndent: 25,
+        indent: 25,)
       ],
     );
   }

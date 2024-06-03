@@ -11,7 +11,7 @@ class Restaurant extends ChangeNotifier{
       name: "Cheese Burger",
       description:
           "Juicy, big, loaded  hamburger with a slice of melted cheese on top of the meat patty",
-      image: "/lib/images/burgers/Double & Single Cheeseburgers.jpg",
+      image: "lib/images/burgers/Double_And_Single_Cheeseburgers.jpg",
       price: 0.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -34,7 +34,7 @@ class Restaurant extends ChangeNotifier{
       name: "Aloha Burger",
       description:
           "taste of paradise between two buns, with caramelized pineapple, tangy sauce, and crisp bacon for a tropical explosion in every bite",
-      image: "/lib/images/burgers/Aloha Burger.jpg",
+      image: "lib/images/burgers/Aloha_Burger.jpg",
       price: 1.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -57,7 +57,7 @@ class Restaurant extends ChangeNotifier{
       name: "Elk Burger",
       description:
           "Dig into a succulent elk burger – a leaner, more flavorful alternative to beef. The patty boasts a rich, earthy taste, cooked to juicy perfection.",
-      image: "/lib/images/burgers/Elk Burger.jpg",
+      image: "lib/images/burgers/Elk_Burger.jpg",
       price: 2.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -80,7 +80,7 @@ class Restaurant extends ChangeNotifier{
       name: "Vegan Burger",
       description:
           "Juicy, big, loaded   typically packed with a mix of vegetables, grains, peas, legumes, and healthy fats",
-      image: "/lib/images/burgers/Vegan Burger.jpg",
+      image: "lib/images/burgers/Vegan_Burger.jpg",
       price: 0.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -103,7 +103,7 @@ class Restaurant extends ChangeNotifier{
       name: "Chicken Burger",
       description:
           "A golden-crisped chicken patty explodes with juicy flavor in a toasted bun, begging for a tangy swipe of sauce and a symphony of fresh toppings",
-      image: "/lib/images/burgers/Chicken Burger.jpg",
+      image: "lib/images/burgers/Chicken _Burger.jpg",
       price: 0.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -127,7 +127,7 @@ class Restaurant extends ChangeNotifier{
       name: "BBQ Chicken Ranch Pasta Salad",
       description:
           "A tender, grilled chicken basking in a creamy ranch dressing infused with smoky BBQ sauce",
-      image: "/lib/images/salads/BBQ Chicken Ranch Pasta Salad_.jpg",
+      image: "lib/images/salads/BBQ_Chicken_Ranch_Pasta_Salad.jpg",
       price: 1.99,
       category: FoodCategory.salads,
       availableAddons: [
@@ -150,7 +150,7 @@ class Restaurant extends ChangeNotifier{
       name: "Green Salad",
       description:
           "A symphony of fresh, vibrant flavors in our Greek Tossed Green Salad. Tender romaine lettuce serves as a cool canvas for juicy bursts of cherry tomatoes, crisp slices of cucumber, and salty Kalamata olives.",
-      image: "/lib/images/salads/Easy Greek Tossed Green Salad.jpg",
+      image: "lib/images/salads/Easy_Greek_Tossed_Green_Salad.jpg",
       price: 0.99,
       category: FoodCategory.salads,
       availableAddons: [
@@ -174,7 +174,7 @@ class Restaurant extends ChangeNotifier{
       description:
           "Tender, shredded chicken bathed in a creamy honey mustard dressing, its sweetness balanced by the tang of the mustard",
       image:
-          "/lib/images/salads/Honey Mustard Chicken Salad With Bacon & Avocado.jpg",
+          "lib/images/salads/Honey _Mustard_Chicken_Salad_With_Bacon_And_Avocado.jpg",
       price: 0.99,
       category: FoodCategory.salads,
       availableAddons: [
@@ -198,7 +198,7 @@ class Restaurant extends ChangeNotifier{
       description:
           "A flavor and protein powerhouse that'll keep you satisfied until sunset",
       image:
-          "/lib/images/salads/Our Hearty Cobb Salad Will Fill You Up All Day.jpg",
+          "lib/images/salads/Our_Hearty_Cobb_Salad_Will_Fill_You_Up_All_Day.jpg",
       price: 1.99,
       category: FoodCategory.salads,
       availableAddons: [
@@ -221,7 +221,7 @@ class Restaurant extends ChangeNotifier{
       name: "Strawberry Spinach Salad",
       description:
           " Imagine a bed of baby spinach, bursting with nutrients and a subtle earthiness. Nestled amongst the greens are plump, juicy strawberries, their sweetness a delightful contrast. Toasted almonds add a satisfying crunch, while crumbled feta cheese brings a touch of salty creaminess. A light balsamic vinaigrette ties everything together, creating a symphony of textures and tastes in every bite",
-      image: "/lib/images/salads/Strawberry Spinach Salad.jpg",
+      image: "lib/images/salads/Strawberry_Spinach_Salad.jpg",
       price: 1.99,
       category: FoodCategory.salads,
       availableAddons: [
@@ -247,7 +247,7 @@ class Restaurant extends ChangeNotifier{
       description:
           "Imagine crisp asparagus spears, their grassy notes perfectly complemented by the salty smokiness of wrapped bacon. Each bite is a delightful explosion of textures – the snap of the asparagus, the satisfying chew of the bacon, and a hint of char if you choose to grill.",
       image:
-          "/lib/images/sides/Bacon Wrapped Asparagus {Baked, Grilled, or Air Fryer} .jpg",
+          "lib/images/sides/Bacon_Wrapped_Asparagus.jpg",
       price: 1.99,
       category: FoodCategory.sides,
       availableAddons: [
@@ -270,7 +270,7 @@ class Restaurant extends ChangeNotifier{
       name: "Easy Creamy Coleslaw.",
       description:
           "A classic side combines crisp shredded cabbage with a creamy, tangy dressing bursting with flavor",
-      image: "/lib/images/sides/Easy Creamy Coleslaw.jpg",
+      image: "lib/images/sides/Easy_Creamy_Coleslaw.jpg",
       price: 1.99,
       category: FoodCategory.sides,
       availableAddons: [
@@ -293,7 +293,7 @@ class Restaurant extends ChangeNotifier{
       name: "Mediterranean Roasted Vegetables.",
       description:
           "Imagine a colorful medley of fresh, seasonal vegetables, roasted to tender perfection and bursting with flavor. The natural sweetness of peppers, zucchini, and eggplant mingles with the earthy richness of red onion and cherry tomatoes. Infused with a fragrant blend of olive oil, garlic, oregano, and a hint of lemon, these vegetables take on a whole new level of deliciousness.",
-      image: "/lib/images/sides/Mediterranean Roasted Vegetables.jpg",
+      image: "lib/images/sides/Mediterranean_Roasted_Vegetables.jpg",
       price: 1.99,
       category: FoodCategory.sides,
       availableAddons: [
@@ -316,7 +316,7 @@ class Restaurant extends ChangeNotifier{
       name: "Roasted Brussel Sprouts with Bacon",
       description:
           "Imagine little green flavor bombs bursting onto your plate: roasted Brussels sprouts with bacon. These tiny cabbages get a beautiful caramelization in the oven, transforming their mellow flavor into nutty-sweet goodness. Crispy bacon bits intermingle, adding a salty, smoky punch that perfectly complements the Brussels sprouts",
-      image: "/lib/images/sides/Roasted Brussel Sprouts with Bacon.jpg",
+      image: "lib/images/sides/Roasted_Brussel_Sprouts_with_Bacon.jpg",
       price: 1.99,
       category: FoodCategory.sides,
       availableAddons: [
@@ -340,7 +340,7 @@ class Restaurant extends ChangeNotifier{
       description:
           "A comforting classic with a touch of luxury. Creamy mashed potatoes made with fluffy, boiled potatoes are whipped to perfection with butter and a hint of cream. The result is a smooth and flavorful side dish perfect for any occasion.",
       image:
-          "/lib/images/sides/Simple Creamy Mashed Potatoes • Olive & Mango.jpg",
+          "lib/images/sides/Simple_Creamy_Mashed_Potatoes.jpg",
       price: 1.99,
       category: FoodCategory.sides,
       availableAddons: [
@@ -364,7 +364,7 @@ class Restaurant extends ChangeNotifier{
       name: "Chocolate Chip Cookies",
       description:
           "Imagine the perfect chocolate chip cookie: crisp on the edges, chewy in the center, and bursting with pockets of melty chocolate in every bite",
-      image: "/lib/images/desserts/Chocolate Chip Cookies.jpg",
+      image: "lib/images/desserts/Chocolate_Chip_Cookies.jpg",
       price: 1.99,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -387,7 +387,7 @@ class Restaurant extends ChangeNotifier{
       name: "Chocolate mousse",
       description:
           "Imagine a silky-smooth cloud of rich chocolate, bursting with flavor in every spoonful. The airy texture melts on your tongue, delivering a pure and intense chocolate experience.",
-      image: "/lib/images/desserts/chocolate mousse.jpg",
+      image: "lib/images/desserts/chocolate_mousse.jpg",
       price: 1.99,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -410,7 +410,7 @@ class Restaurant extends ChangeNotifier{
       name: "Chocolate Strawberry Cake",
       description:
           "Imagine a moist and decadent chocolate cake, its rich cocoa flavor perfectly complementing layers of fresh, sweet strawberries. Each bite is a symphony of textures: the fluffy cake, the juicy burst of strawberries, and a touch of creamy frosting that ties everything together.",
-      image: "/lib/images/desserts/Chocolate Strawberry Cake.jpg",
+      image: "lib/images/desserts/Chocolate_Strawberry_Cake.jpg",
       price: 1.99,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -433,7 +433,7 @@ class Restaurant extends ChangeNotifier{
       name: "Mini Pecan Pies",
       description:
           "Imagine a buttery, flaky crust cradling a rich and gooey pecan filling. Each bite is a delightful explosion of flavors and textures: the sweet and nutty pecans, the gooey filling, and the satisfying crunch of the crust.",
-      image: "/lib/images/desserts/Mini Pecan Pies Recipe.jpg",
+      image: "lib/images/desserts/Mini_Pecan_Pies_Recipe.jpg",
       price: 1.99,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -453,10 +453,10 @@ class Restaurant extends ChangeNotifier{
     ),
 
     Food(
-      name: "Pistachio Honey Baklava Cheesecake",
+      name: "Pistachio_Honey_Baklava_Cheesecake",
       description:
           " A creamy, rich cheesecake filling rests on a base of crispy phyllo dough, reminiscent of the classic Middle Eastern pastry, baklava. But the magic doesn't stop there. This cheesecake is studded with vibrant green pistachios, adding a delightful nutty crunch and a touch of earthy elegance",
-      image: "/lib/images/desserts/Pistachio Honey Baklava Cheesecake.jpg",
+      image: "lib/images/desserts/Pistachio_Honey_Baklava_Cheesecake.jpg",
       price: 1.99,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -480,7 +480,7 @@ class Restaurant extends ChangeNotifier{
       name: "Caramel Hazelnut Iced Coffee",
       description:
           " Imagine a refreshing blast of cold coffee, perfectly balanced with the rich sweetness of caramel and the nutty depth of hazelnut. Each sip is a symphony of flavors: the smooth, bold coffee, the creamy sweetness of caramel, and the subtle nuttiness of hazelnut.",
-      image: "/lib/images/drinks/Caramel Hazelnut Iced Coffee.jpg",
+      image: "lib/images/drinks/Caramel_Hazelnut_Iced_Coffee.jpg",
       price: 1.99,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -503,7 +503,7 @@ class Restaurant extends ChangeNotifier{
       name: "Easy Oreo Milkshake",
       description:
           "Indulge in a childhood favorite with a grown-up twist – our Easy Oreo Milkshake! Imagine a wave of creamy vanilla ice cream bliss, studded with chunks of those iconic black and white cookies. Each sip is a delightful dance of textures and flavors: the smooth coolness of the ice cream and the satisfying crunch of the Oreos, all perfectly blended into a rich and decadent treat",
-      image: "/lib/images/drinks/Easy Oreo Milkshake.jpg",
+      image: "lib/images/drinks/Easy_Oreo_Milkshake.jpg",
       price: 1.99,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -526,7 +526,7 @@ class Restaurant extends ChangeNotifier{
       name: "Milkshake Dessert",
       description:
           "A glass transformed into a wonderland of textures and flavors",
-      image: "/lib/images/drinks/Milkshake Dessert.jpg",
+      image: "lib/images/drinks/Milkshake_Dessert.jpg",
       price: 1.99,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -548,7 +548,7 @@ class Restaurant extends ChangeNotifier{
     Food(
       name: "Redbull",
       description: "A refreshing and Tasty energy drink.",
-      image: "/lib/images/drinks/redbull.jpg",
+      image: "lib/images/drinks/redbull.jpg",
       price: 1.99,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -571,7 +571,7 @@ class Restaurant extends ChangeNotifier{
       name: "Strawberry Basil Lemonade",
       description:
           "Imagine a vibrant pink lemonade base bursting with the juicy sweetness of fresh strawberries and the fragrant, herbal touch of basil. Each sip is a delightful dance on your palate: the sweet and tangy lemonade, the burst of juicy fruit, and the subtle peppery coolness of basil.",
-      image: "/lib/imagesdrinks/Strawberry Basil Lemonade.jpg",
+      image: "lib/images/drinks/Strawberry_Basil_Lemonade.jpg",
       price: 1.99,
       category: FoodCategory.drinks,
       availableAddons: [
