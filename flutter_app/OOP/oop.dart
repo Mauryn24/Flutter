@@ -32,3 +32,4 @@ class Person {
   // this.name - link your name to the name attribute
   Person(this.name, this.age, [this.address = 'Kite']);
 }
+// nheritance is a fundamental concept in object-oriented programming that enables code reuse and promotes modular development. Flutter, Google's UI toolkit, provides powerful inheritance mechanisms that allow developers to create reusable UI components
