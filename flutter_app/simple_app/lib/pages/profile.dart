@@ -12,6 +12,12 @@ class profile extends StatelessWidget {
       body: Center(
         child: Text('Welcome to the Profile Page!'),
       ),
+      
     );
+    MyTextField(
+                  controller: usernameController,
+                  hintText: 'Username',
+                  obscureText: false,
+                ),
   }
 }
