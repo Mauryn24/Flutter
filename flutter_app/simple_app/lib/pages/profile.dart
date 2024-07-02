@@ -17,7 +17,8 @@ class profile extends StatelessWidget {
                   hintText: 'Username',
                   obscureText: false,
                 ),
-        T
+        const SizedBox(height: 25),
+
       ),
       
     );
