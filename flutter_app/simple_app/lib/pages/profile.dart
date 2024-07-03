@@ -11,13 +11,6 @@ class profile extends StatelessWidget {
       ),
       body: Center(
         child: Text('Welcome to the Profile Page!'),
-        const SizedBox(height: 25),
-        MyTextField(
-                  controller: usernameController,
-                  hintText: 'Username',
-                  obscureText: false,
-                ),
-        const SizedBox(height: 25),
 
       ),
       
