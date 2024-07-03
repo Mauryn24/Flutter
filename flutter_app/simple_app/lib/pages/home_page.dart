@@ -9,27 +9,61 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DefaultTabController(
-        length: 3, // Number of tabs
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Tab Bar'),
-            bottom: const TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.home), text: 'Home'),
-                Tab(icon: Icon(Icons.search), text: 'Search'),
-                Tab(icon: Icon(Icons.person), text: 'Profile'),
-              ],
+      home: HomeScreen(),
+    );
+  }
+}
+
+// Home screen widget
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Drawer Navigation'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
             ),
-          ),
-          body: const TabBarView(
-            children: [
-              Center(child: Text('Home Page')),
-              Center(child: Text('Search Page')),
-              Center(child: Text('Profile Page')),
-            ],
-          ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.search),
+              title: Text('Search'),
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Profile'),
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+          ],
         ),
+      ),
+      body: Center(
+        child: Text('Home Page'),
       ),
     );
   }
