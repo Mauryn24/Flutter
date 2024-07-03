@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
     // Navigate to the HomePage when the button is clicked
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
+      MaterialPageRoute(builder: (context) => MyApp()),
     );
   }
 
