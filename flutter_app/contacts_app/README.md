@@ -1,16 +1,24 @@
 # contacts_app
 
-A new Flutter project.
+A contacts app created using flutter
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Widget
+- Basic Building Block ie everything in a flutter app is a widget
+- The most used pre-built widgets:
+   1. Scaffold
+   - Lays out the whole 'page; layout
+   2. App Bar
+   - Contains title and navigation (back button, action buttons)
+   3. FloatingActionButton
+   4. Text
+   5. Image
+   6. ListTile
+   - Saves you from writing boilerplate layout code for list items since many of the widgets displayed in a list have a lot in common
+    7. ListView
+    - Displays a scrollablle list
+    8. Column
+    - Displays a non-scrollable vertcal list
+    9. Row
+    - Displays a non-scrollable horizontal non-scrollable list
