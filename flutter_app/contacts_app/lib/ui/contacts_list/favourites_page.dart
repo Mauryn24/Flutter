@@ -8,6 +8,9 @@ class FavouritesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Favourites'),
+        theme: ThemeData(
+        useMaterial3: true,
+      ),
       ),
     );
   }
