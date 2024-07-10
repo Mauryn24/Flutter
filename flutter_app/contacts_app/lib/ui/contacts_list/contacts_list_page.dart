@@ -9,6 +9,10 @@ class ContactsListPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Contacts'),
       ),
+      body: Column(
+        children: <Widget>[
+        Text('contact test'),
+      ],),
     );
   }
 }
