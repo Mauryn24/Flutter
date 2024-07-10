@@ -9,10 +9,18 @@ class ContactsListPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Contacts'),
       ),
-      body: Column(
-        children: <Widget>[
-        Text('contact test'),
-      ],),
+      body: Center(
+        child: Column(
+          // column aligns the contents vertically
+          
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+          Text(
+            'contact test',
+            style: TextStyle(fontSize: 30),
+            ),
+        ],),
+      ),
     );
   }
 }
