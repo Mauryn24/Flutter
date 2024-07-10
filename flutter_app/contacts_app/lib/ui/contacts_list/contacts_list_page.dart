@@ -10,10 +10,8 @@ class ContactsListPage extends StatelessWidget {
         title: Text('Contacts'),
       ),
       body: Center(
-        child: Column(
-          // column aligns the contents vertically
-          
-          mainAxisSize: MainAxisSize.min,
+        child: ListView(
+          // List view allows one to scroll
           children: <Widget>[
           Text(
             'contact test',
