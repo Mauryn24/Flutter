@@ -1,22 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:faker/faker.dart';
 
 class ContactsListPage extends StatelessWidget {
+  // Adding a constructor with a key parameter for better widget identification
   // const ContactsListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final faker = Faker();
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contacts'),
+        // Setting the title of the AppBar
+        title: const Text('Contacts'),
       ),
       body: ListView.builder(
-        // List view allows one to scroll
+        // Setting the number of items in the ListView
         itemCount: 30,
+        // Building each item in the ListView
         itemBuilder: (context, index) {
+          // Generating a first name and last name using faker
+          final firstName = faker.person.firstName();
+          final lastName = faker.person.lastName();
+
           return Center(
+            // Displaying the generated first and last name
             child: Text(
-              'Contact Text',
-              style: TextStyle(fontSize: 30),
+              // Using string interpolation for better performance and readability
+              '$firstName $lastName',
+              // Setting the font size of the text
+              style: const TextStyle(fontSize: 30),
             ),
           );
         },
