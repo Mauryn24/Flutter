@@ -9,15 +9,15 @@ class ContactsListPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Contacts'),
       ),
-      body: Center(
-        child: ListView(
-          // List view allows one to scroll
-          children: <Widget>[
-          Text(
-            'contact test',
+      body: ListView.builder(
+        // List view allows one to scroll
+        itemCount: 30,
+        itemBuilder: (context, index) {
+          return Text(
+            'Cotact Text',
             style: TextStyle(fontSize: 30),
-            ),
-        ],),
+          );
+        },
       ),
     );
   }
