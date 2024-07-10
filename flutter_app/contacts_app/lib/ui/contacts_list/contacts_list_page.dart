@@ -13,9 +13,11 @@ class ContactsListPage extends StatelessWidget {
         // List view allows one to scroll
         itemCount: 30,
         itemBuilder: (context, index) {
-          return Text(
-            'Cotact Text',
-            style: TextStyle(fontSize: 30),
+          return Center(
+            child: Text(
+              'Contact Text',
+              style: TextStyle(fontSize: 30),
+            ),
           );
         },
       ),
