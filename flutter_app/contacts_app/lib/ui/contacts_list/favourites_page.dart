@@ -8,8 +8,16 @@ class FavouritesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Favourites'),
-        
       ),
+       body: const Center(
+       child: Text(
+         "Favourite Contacts",
+         style: TextStyle(
+           color: Colors.black,
+           fontSize: 40.0,
+         ),
+       ),
+     ),
     );
   }
 }
