@@ -14,7 +14,7 @@ class FavouritesPage extends StatelessWidget {
          "Favourite Contacts",
          style: TextStyle(
            color: Colors.black,
-           fontSize: 80.0,
+           fontSize: 100.0,
            fontFamily: SansSarif,
          ),
        ),
