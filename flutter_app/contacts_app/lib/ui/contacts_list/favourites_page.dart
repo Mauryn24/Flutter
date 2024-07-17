@@ -9,15 +9,19 @@ class FavouritesPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Favourites Page'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: const Center(
-          child: Text(
-            "Favourite Contacts",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 700.0,
-              fontFamily: Roboto,
+      body: Center(
+        child: SizedBox(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: const Center(
+              child: Text(
+                "Favourite Contacts",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 700.0,
+                  fontFamily: Roboto,
+                ),
+              ),
             ),
           ),
         ),
