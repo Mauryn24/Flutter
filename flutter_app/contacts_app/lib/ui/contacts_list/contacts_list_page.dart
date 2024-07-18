@@ -1,3 +1,4 @@
+import 'package:contacts_app/data/contacts.dart';
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
 
@@ -5,10 +6,22 @@ class ContactsListPage extends StatelessWidget {
   // Adding a constructor with a key parameter for better widget identification
   // const ContactsListPage({super.key});
 
+  // Creating a final list of contacts using Faker to generate fake data
+  final List<Contact> _contacts = List.generate(50, (index) {
+    // Create an instance of Faker
+    final faker = Faker();
+    return Contact(
+      // Generating a first name and last name using faker
+      name: '${faker.person.firstName()} ${faker.person.lastName()}',
+      // Generating a fake email address
+      email: faker.internet.email(),
+      // Generating a fake phone number
+      phoneNumber: faker.randomGenerator.integer(100000).toString(),
+    );
+  });
+
   @override
   Widget build(BuildContext context) {
-    final faker = Faker();
-
     return Scaffold(
       appBar: AppBar(
         // Setting the title of the AppBar
@@ -16,21 +29,18 @@ class ContactsListPage extends StatelessWidget {
       ),
       body: ListView.builder(
         // Setting the number of items in the ListView
-        itemCount: 30,
+        itemCount: _contacts.length,
         // Building each item in the ListView
         itemBuilder: (context, index) {
-          // Generating a first name and last name using faker
-          final firstName = faker.person.firstName();
-          final lastName = faker.person.lastName();
-
-          return Center(
-            // Displaying the generated first and last name
-            child: Text(
-              // Using string interpolation for better performance and readability
-              '$firstName $lastName',
-              // Setting the font size of the text
-              style: const TextStyle(fontSize: 30),
-            ),
+          // Retrieving a contact from the list
+          final contact = _contacts[index];
+          return ListTile(
+            // Displaying the contact's name
+            title: Text(contact.name),
+            // Displaying the contact's email
+            subtitle: Text(contact.email),
+            // Displaying the contact's phone number
+            trailing: Text(contact.phoneNumber),
           );
         },
       ),
