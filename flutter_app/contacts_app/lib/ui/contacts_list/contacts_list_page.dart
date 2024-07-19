@@ -2,11 +2,13 @@ import 'package:contacts_app/data/contacts.dart';
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
 
-class ContactsListPage extends StatelessWidget {
-  // Adding a constructor with a key parameter for better widget identification
-  // const ContactsListPage({super.key});
+class ContactsListPage extends StatefulWidget {
+  @override
+  State<ContactsListPage> createState() => _ContactsListPageState();
+}
 
-  // Creating a final list of contacts using Faker to generate fake data
+class _ContactsListPageState extends State<ContactsListPage> {
+  // Adding a constructor with a key parameter for better widget identification
   final List<Contact> _contacts = List.generate(50, (index) {
     // Create an instance of Faker
     final faker = Faker();
@@ -16,7 +18,7 @@ class ContactsListPage extends StatelessWidget {
       // Generating a fake email address
       email: faker.internet.email(),
       // Generating a fake phone number
-      phoneNumber: faker.randomGenerator.integer(100000).toString(),
+      phoneNumber: faker.randomGenerator.integer(1000000).toString(),
     );
   });
 
