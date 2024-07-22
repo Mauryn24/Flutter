@@ -23,8 +23,8 @@ class _FavouritesPageState extends State<FavouritesPage> {
                 child: Text(
                   "Favourite Contacts",
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 500.0,
+                    color: Colors.blue,
+                    fontSize: 200.0,
                     fontFamily:   Robotto,
                     ),
                 ),
