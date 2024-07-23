@@ -61,7 +61,7 @@ class _ContactsListPageState extends State<ContactsListPage> {
             title: Text(contact.name),
             // Displaying the contact's email
             subtitle: Text(contact.email),
-            // Displaying the contact's phone number
+            // Displaying the favourites contact's phone number
             trailing: IconButton(
               icon: Icon(
                 contact.isFavorite ? Icons.star : Icons.star_border,
