@@ -53,6 +53,11 @@ class _ContactsListPageState extends State<ContactsListPage> {
             subtitle: Text(contact.email),
             // Displaying the contact's phone number
             // trailing: Text(contact.phoneNumber),
+
+            // Displaying favorite contacts
+            trailing: IconButton(
+              icon: Icon(Icons.star_border),
+            ),
           );
         },
       ),
