@@ -8,19 +8,29 @@ class ContactsListPage extends StatefulWidget {
 }
 
 class _ContactsListPageState extends State<ContactsListPage> {
-  // Adding a constructor with a key parameter for better widget identification
-  final List<Contact> _contacts = List.generate(50, (index) {
-    // Create an instance of Faker
+  // List to hold the contact data
+  List<Contact> _contacts = [];
+
+  // The initState method is called when this object is inserted into the widget tree.
+  // This is where you can initialize data, subscribe to streams, or any other setup that 
+  // needs to be done before the widget is built.
+  @override
+  void initState() {
+    super.initState();
+
+    // Initializing the contacts list using Faker to generate fake data
     final faker = Faker();
-    return Contact(
-      // Generating a first name and last name using faker
-      name: '${faker.person.firstName()} ${faker.person.lastName()}',
-      // Generating a fake email address
-      email: faker.internet.email(),
-      // Generating a fake phone number
-      phoneNumber: faker.randomGenerator.integer(1000000).toString(),
-    );
-  });
+    _contacts = List.generate(50, (index) {
+      return Contact(
+        // Generating a first name and last name using faker
+        name: '${faker.person.firstName()} ${faker.person.lastName()}',
+        // Generating a fake email address
+        email: faker.internet.email(),
+        // Generating a fake phone number
+        phoneNumber: faker.randomGenerator.integer(1000000).toString(),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
