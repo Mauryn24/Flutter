@@ -35,6 +35,7 @@ class _ContactsListPageState extends State<ContactsListPage> {
   }
 
   // Method to toggle favorite status
+  // The code toggles the `isFavorite` status of a contact at a specified index in the `_contacts` list. The `setState` call ensures the UI is updated to reflect this change.
   void _toggleFavorite(int index) {
     setState(() {
       _contacts[index].isFavorite = !_contacts[index].isFavorite;
