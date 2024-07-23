@@ -42,7 +42,7 @@ class _ContactsListPageState extends State<ContactsListPage> {
             // Displaying the contact's email
             subtitle: Text(contact.email),
             // Displaying the contact's phone number
-            trailing: Text(contact.phoneNumber),
+            // trailing: Text(contact.phoneNumber),
           );
         },
       ),

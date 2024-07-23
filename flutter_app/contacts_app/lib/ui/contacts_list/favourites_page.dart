@@ -25,7 +25,6 @@ class _FavouritesPageState extends State<FavouritesPage> {
                   style: TextStyle(
                     color: Colors.blue,
                     fontSize: 200.0,
-                    fontFamily:   Robotto,
                     ),
                 ),
               ),
