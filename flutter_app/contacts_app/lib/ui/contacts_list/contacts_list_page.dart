@@ -28,7 +28,16 @@ class _ContactsListPageState extends State<ContactsListPage> {
         email: faker.internet.email(),
         // Generating a fake phone number
         phoneNumber: faker.randomGenerator.integer(1000000).toString(),
+        // Initializing the isFavorite attribute
+        isFavorite: false,
       );
+    });
+  }
+
+  // Method to toggle favorite status
+  void _toggleFavorite(int index) {
+    setState(() {
+      _contacts[index].isFavorite = !_contacts[index].isFavorite;
     });
   }
 
@@ -52,11 +61,12 @@ class _ContactsListPageState extends State<ContactsListPage> {
             // Displaying the contact's email
             subtitle: Text(contact.email),
             // Displaying the contact's phone number
-            // trailing: Text(contact.phoneNumber),
-
-            // Displaying favorite contacts
             trailing: IconButton(
-              icon: Icon(Icons.star_border),
+              icon: Icon(
+                contact.isFavorite ? Icons.star : Icons.star_border,
+                color: contact.isFavorite ? Colors.amber : Colors.grey,
+              ),
+              onPressed: () => _toggleFavorite(index), // Adding onPressed event
             ),
           );
         },
