@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
 
 class ContactsListPage extends StatefulWidget {
+  // Adding a key parameter to the constructor
+  const ContactsListPage({Key? key}) : super(key: key);
+
   @override
   State<ContactsListPage> createState() => _ContactsListPageState();
 }
@@ -35,11 +38,16 @@ class _ContactsListPageState extends State<ContactsListPage> {
   }
 
   // Method to toggle favorite status
-  // The code toggles the `isFavorite` status of a contact at a specified index in the `_contacts` list. The `setState` call ensures the UI is updated to reflect this change.
   void _toggleFavorite(int index) {
     setState(() {
       _contacts[index].isFavorite = !_contacts[index].isFavorite;
+      _sortContacts();  // Sort the contacts whenever a favorite is toggled
     });
+  }
+
+  // Method to sort contacts based on isFavorite status
+  void _sortContacts() {
+    _contacts.sort((a, b) => (b.isFavorite ? 1 : 0).compareTo(a.isFavorite ? 1 : 0));
   }
 
   @override
