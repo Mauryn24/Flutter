@@ -27,10 +27,13 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Text('To do list')
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            Text('To do list App',),
+            
+          ],
+        ),
       ),
     );
   }
