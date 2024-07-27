@@ -1,6 +1,7 @@
 import 'package:contacts_app/data/contacts.dart';
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
+import 'package:contacts_app/ui/contacts_list/widget/contact_tile.dart';
 
 class ContactsListPage extends StatefulWidget {
   // Adding a key parameter to the constructor
@@ -64,21 +65,9 @@ class _ContactsListPageState extends State<ContactsListPage> {
         itemBuilder: (context, index) {
           // Retrieving a contact from the list
           final contact = _contacts[index];
-          return widget(
-            child: ListTile(
-              // Displaying the contact's name
-              title: Text(contact.name),
-              // Displaying the contact's email
-              subtitle: Text(contact.email),
-              // Displaying the favourites contact's phone number
-              trailing: IconButton(
-                icon: Icon(
-                  contact.isFavorite ? Icons.star : Icons.star_border,
-                  color: contact.isFavorite ? Colors.amber : Colors.grey,
-                ),
-                onPressed: () => _toggleFavorite(index), // Adding onPressed event
-              ),
-            ),
+          return ContactTile(
+            contact: contact,
+            onFavoriteToggle: () => _toggleFavorite(index),
           );
         },
       ),
