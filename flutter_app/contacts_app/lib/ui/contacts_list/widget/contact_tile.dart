@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:contacts_app/data/contacts.dart';
+import 'package:flutter/material.dart';  // Importing Flutter material package
+import 'package:contacts_app/data/contacts.dart';  // Importing the Contact model
 
+// Defining the ContactTile widget class
 class ContactTile extends StatelessWidget {
-  final Contact contact;
-  final VoidCallback onFavoriteToggle;
+  final Contact contact;  // Contact to be displayed
+  final VoidCallback onFavoriteToggle;  // Callback for toggling favorite status
 
+  // Constructor with required parameters
   const ContactTile({
     Key? key,
     required this.contact,
@@ -14,17 +16,14 @@ class ContactTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      // Displaying the contact's name
-      title: Text(contact.name),
-      // Displaying the contact's email
-      subtitle: Text(contact.email),
-      // Displaying the favourites contact's phone number
+      title: Text(contact.name),  // Displaying the contact's name
+      subtitle: Text(contact.email),  // Displaying the contact's email
       trailing: IconButton(
         icon: Icon(
-          contact.isFavorite ? Icons.star : Icons.star_border,
-          color: contact.isFavorite ? Colors.amber : Colors.grey,
+          contact.isFavorite ? Icons.star : Icons.star_border,  // Displaying the correct icon
+          color: contact.isFavorite ? Colors.amber : Colors.grey,  // Setting the icon color
         ),
-        onPressed: onFavoriteToggle, // Adding onPressed event
+        onPressed: onFavoriteToggle,  // Setting the onPressed callback
       ),
     );
   }

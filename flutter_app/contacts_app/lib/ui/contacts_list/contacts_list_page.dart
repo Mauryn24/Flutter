@@ -1,76 +1,32 @@
-import 'package:contacts_app/data/contacts.dart';
-import 'package:flutter/material.dart';
-import 'package:faker/faker.dart';
-import 'package:contacts_app/ui/contacts_list/widget/contact_tile.dart';
+import 'package:flutter/material.dart';  // Importing Flutter material package
+import 'package:scoped_model/scoped_model.dart';  // Importing scoped_model package
+import 'package:contacts_app/ui/model/contacts_model.dart';  // Importing the ContactsModel class
+import 'package:contacts_app/ui/contacts_list/widget/contact_tile.dart';  // Importing the ContactTile widget
 
-class ContactsListPage extends StatefulWidget {
-  // Adding a key parameter to the constructor
-  const ContactsListPage({Key? key}) : super(key: key);
-
-  @override
-  State<ContactsListPage> createState() => _ContactsListPageState();
-}
-
-class _ContactsListPageState extends State<ContactsListPage> {
-  // List to hold the contact data
-  List<Contact> _contacts = [];
-
-  // The initState method is called when this object is inserted into the widget tree.
-  // This is where you can initialize data, subscribe to streams, or any other setup that 
-  // needs to be done before the widget is built.
-  @override
-  void initState() {
-    super.initState();
-
-    // Initializing the contacts list using Faker to generate fake data
-    final faker = Faker();
-    _contacts = List.generate(50, (index) {
-      return Contact(
-        // Generating a first name and last name using faker
-        name: '${faker.person.firstName()} ${faker.person.lastName()}',
-        // Generating a fake email address
-        email: faker.internet.email(),
-        // Generating a fake phone number
-        phoneNumber: faker.randomGenerator.integer(1000000).toString(),
-        // Initializing the isFavorite attribute
-        isFavorite: false,
-      );
-    });
-  }
-
-  // Method to toggle favorite status
-  void _toggleFavorite(int index) {
-    setState(() {
-      _contacts[index].isFavorite = !_contacts[index].isFavorite;
-      _sortContacts();  // Sort the contacts whenever a favorite is toggled
-    });
-  }
-
-  // Method to sort contacts based on isFavorite status
-  void _sortContacts() {
-    _contacts.sort((a, b) => (b.isFavorite ? 1 : 0).compareTo(a.isFavorite ? 1 : 0));
-  }
+// Defining the ContactsListPage widget class
+class ContactsListPage extends StatelessWidget {
+  const ContactsListPage({Key? key}) : super(key: key);  // Constructor with key parameter
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // Setting the title of the AppBar
-        title: const Text('Contacts'),
-      ),
-      body: ListView.builder(
-        // Setting the number of items in the ListView
-        itemCount: _contacts.length,
-        // Building each item in the ListView
-        itemBuilder: (context, index) {
-          // Retrieving a contact from the list
-          final contact = _contacts[index];
-          return ContactTile(
-            contact: contact,
-            onFavoriteToggle: () => _toggleFavorite(index),
-          );
-        },
-      ),
+    return ScopedModelDescendant<ContactsModel>(  // Using ScopedModelDescendant to access the model
+      builder: (context, child, model) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Contacts'),  // Setting the AppBar title
+          ),
+          body: ListView.builder(
+            itemCount: model.contacts.length,  // Setting the item count
+            itemBuilder: (context, index) {
+              final contact = model.contacts[index];  // Retrieving a contact from the list
+              return ContactTile(
+                contact: contact,  // Passing the contact to the ContactTile
+                onFavoriteToggle: () => model.toggleFavorite(index),  // Passing the callback to toggle favorite status
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

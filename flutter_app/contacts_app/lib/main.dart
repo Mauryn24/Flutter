@@ -1,25 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:contacts_app/ui/contacts_list/contacts_list_page.dart';
+import 'package:flutter/material.dart';  // Importing Flutter material package
+import 'package:scoped_model/scoped_model.dart';  // Importing scoped_model package
+import 'package:contacts_app/ui/model/contacts_model.dart';  // Importing the ContactsModel class
+import 'package:contacts_app/ui/contacts_list/contacts_list_page.dart';  // Importing the ContactsListPage widget
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());  // Running the MyApp widget
 }
 
+// Defining the MyApp widget class
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Contacts',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ScopedModel<ContactsModel>(
+      model: ContactsModel(),  // Providing the ContactsModel to the widget tree
+      child: MaterialApp(
+        title: 'Contacts App',  // Setting the app title
+        theme: ThemeData(
+          primarySwatch: Colors.blue,  // Setting the primary color theme
+        ),
+        home: const ContactsListPage(),  // Setting the home widget
       ),
-      home: ContactsListPage(),
     );
   }
 }
-
