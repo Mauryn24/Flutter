@@ -7,7 +7,9 @@ class BlockedContacts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      body: Title(
+        color: Colors.black,
+        child: ),
     );
   }
 }
