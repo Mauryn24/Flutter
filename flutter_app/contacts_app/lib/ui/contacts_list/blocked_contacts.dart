@@ -9,8 +9,8 @@ class BlockedContacts extends StatelessWidget {
     return Scaffold(
       body: Title(
         text: "Blocked Contacts",
-        FontWeight: 900,
-        color: Colors.red,
+        FontWeight: 1000,
+        color: Colors.blue,
         ),
     );
   }
