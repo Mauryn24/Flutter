@@ -8,8 +8,8 @@ class BlockedContacts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Title(
-        text: "Blocked Contacts",
-        fontWeight: 600,
+        text: "Blocked Contacts page",
+        fontWeight: 1000,
         color: Colors.blue
         ,
         ),
